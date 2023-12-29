@@ -1,3 +1,9 @@
+import Navbar from "@/app/navbar";
+
 export default function Admin() {
-  return <>Admin Page</>;
+  return (
+    <>
+      <Navbar>Admin Page</Navbar>
+    </>
+  );
 }
