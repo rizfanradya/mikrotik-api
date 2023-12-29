@@ -1,5 +1,7 @@
 import Navbar from "@/app/navbar";
-import { FaServer } from "react-icons/fa";
+import Link from "next/link";
+import { FaServer, FaExternalLinkAlt, FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const data = [{ hotspotName: "hotspot1", sessionName: "session1" }];
 
@@ -13,11 +15,28 @@ export default function AdminSettings() {
 
         <div>
           {data.map((data, index) => (
-            <div key={index}>
+            <div key={index} className="flex justify-between items-center">
               <FaServer />
               <div>
-                <p>Hotspot Name : {data.hotspotName}</p>
-                <p>Session Name : {data.sessionName}</p>
+                <div>
+                  <p>Hotspot Name : {data.hotspotName}</p>
+                  <p>Session Name : {data.sessionName}</p>
+                </div>
+
+                <div className="flex gap-2">
+                  <Link className="badge badge-accent" href={"/"}>
+                    <FaExternalLinkAlt />
+                    Open
+                  </Link>
+                  <Link className="badge badge-primary" href={"/"}>
+                    <FaEdit />
+                    Edit
+                  </Link>
+                  <Link className="badge-error badge" href={"/"}>
+                    <MdDelete />
+                    Delete
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
