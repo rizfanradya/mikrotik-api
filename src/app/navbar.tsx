@@ -26,20 +26,11 @@ export default function Navbar({
 
           <p>{title}</p>
         </div>
-
-        <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link href={"/"}>
-                Logout <IoIosLogOut size="1.5em" />
-              </Link>
-            </li>
-          </ul>
-        </div>
       </div>
 
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content p-4">{children}</div>
 
         <div className="drawer-side">
           <label
@@ -65,13 +56,13 @@ export default function Navbar({
               </Link>
             </li>
             <li>
-              <Link href={"/"}>
+              <Link href={"/uploadLogo"}>
                 <FaUpload size="1.5em" />
                 Upload Logo
               </Link>
             </li>
             <li>
-              <Link href={"/"}>
+              <Link href={"/templateEditor"}>
                 <FaEdit size="1.5em" />
                 Template Editor
               </Link>
@@ -83,22 +74,26 @@ export default function Navbar({
               </Link>
             </li>
             <li>
-              <Link href={"/"}>
+              <Link href={"/addRouter"}>
                 <IoMdAddCircle size="1.5em" />
                 Add Router
               </Link>
             </li>
             <li>
-              <Link href={"/"}>
+              <Link href={"/about"}>
                 <FaInfoCircle size="1.5em" />
                 About
+              </Link>
+            </li>
+            <li>
+              <Link href={"/logout"}>
+                <IoIosLogOut size="1.5em" />
+                Logout
               </Link>
             </li>
           </ul>
         </div>
       </div>
-
-      <div className="p-4">{children}</div>
     </>
   );
 }
