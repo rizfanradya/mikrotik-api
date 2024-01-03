@@ -1,3 +1,5 @@
+import Navbar from "./navbar";
+
 export default function Home() {
-  return <>Home Page</>;
+  return <Navbar title="Dashboard">Dashboard</Navbar>;
 }

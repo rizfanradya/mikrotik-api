@@ -6,6 +6,8 @@ import {
   IoMdSettings,
   IoMdAddCircle,
 } from "react-icons/io";
+import { AiFillDashboard } from "react-icons/ai";
+import { FaUpload, FaEdit, FaInfoCircle } from "react-icons/fa";
 
 export default function Navbar({
   children,
@@ -51,6 +53,30 @@ export default function Navbar({
               MIKROTIK API
             </Link>
             <li>
+              <Link href={"/"}>
+                <AiFillDashboard size="1.5em" />
+                Dashboard
+              </Link>
+            </li>
+            <li>
+              <Link href={"/sessionSetting"}>
+                <IoMdSettings size="1.5em" />
+                Session Setting
+              </Link>
+            </li>
+            <li>
+              <Link href={"/"}>
+                <FaUpload size="1.5em" />
+                Upload Logo
+              </Link>
+            </li>
+            <li>
+              <Link href={"/"}>
+                <FaEdit size="1.5em" />
+                Template Editor
+              </Link>
+            </li>
+            <li>
               <Link href={"/adminSettings"}>
                 <IoMdSettings size="1.5em" />
                 Admin Settings
@@ -60,6 +86,12 @@ export default function Navbar({
               <Link href={"/"}>
                 <IoMdAddCircle size="1.5em" />
                 Add Router
+              </Link>
+            </li>
+            <li>
+              <Link href={"/"}>
+                <FaInfoCircle size="1.5em" />
+                About
               </Link>
             </li>
           </ul>
