@@ -1,5 +1,6 @@
 "use client";
 import { Card, Label, TextInput } from "flowbite-react";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 type Inputs = {
@@ -8,14 +9,22 @@ type Inputs = {
 };
 
 export default function Login() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const { register, handleSubmit } = useForm<Inputs>();
+  const router = useRouter();
 
   const handleLogin: SubmitHandler<Inputs> = (e) => {
-    console.log(e);
+    const username = "mikhmon";
+    const password = "1234";
+
+    if (e.username === username) {
+      if (e.password === password) {
+        router.push("/");
+      } else {
+        alert("password salah");
+      }
+    } else {
+      alert("username tidak ditemukan");
+    }
   };
 
   return (
