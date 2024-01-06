@@ -14,49 +14,105 @@ export default function SessionSetting() {
 
         <div className="p-3 grid gap-4">
           <div className="grid gap-4">
-            <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
-              <h1 className="bg-slate-800 p-3 font-semibold">Session</h1>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid gap-4">
+                <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
+                  <h1 className="bg-slate-800 p-3 font-semibold">Session</h1>
 
-              <TextInput data="Session Name" type="text" />
-            </div>
+                  <TextInput data="Session Name" type="text" />
+                </div>
 
-            <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
-              <h1 className="bg-slate-800 p-3 font-semibold">MikroTik</h1>
+                <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
+                  <h1 className="bg-slate-800 p-3 font-semibold">MikroTik</h1>
 
-              <div>
-                <TextInput data="Ip Mikrotik" type="text" />
-                <TextInput data="Username" type="text" />
-                <div className="p-2">
-                  <label htmlFor="password" className="label-text text-base">
-                    Password
+                  <TextInput data="Ip Mikrotik" type="text" />
+                  <TextInput data="Username" type="text" />
+                  <div className="p-2 md:grid md:grid-cols-2 items-center">
+                    <label
+                      htmlFor="password"
+                      className="label-text text-sm font-semibold"
+                    >
+                      Password
+                    </label>
+                    <PasswordSessionSetting />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3 gap-2">
+                  <button className="btn btn-info text-white">Save</button>
+                  <button className="btn btn-success text-white">
+                    Connect
+                  </button>
+                  <button className="btn btn-warning text-white">Ping</button>
+                </div>
+              </div>
+
+              <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
+                <h1 className="bg-slate-800 p-3 font-semibold">Data</h1>
+
+                <TextInput data="Hotspot Name" type="text" />
+                <TextInput data="DNS Name" type="text" />
+                <TextInput data="Currency (RP)" type="number" />
+
+                <div className="p-2 md:grid md:grid-cols-2 items-center">
+                  <label
+                    htmlFor="Auto Load (SEC)"
+                    className="label-text text-sm font-semibold"
+                  >
+                    Auto Load (SEC)
                   </label>
-                  <PasswordSessionSetting />
+                  <input
+                    id="Auto Load (SEC)"
+                    className="input input-bordered input-info w-full"
+                    placeholder="Auto Load (SEC)"
+                    type="number"
+                    required
+                    defaultValue={10}
+                  />
+                </div>
+
+                <div className="p-2 md:grid md:grid-cols-2 items-center">
+                  <label className="label-text text-sm font-semibold">
+                    Idle Timeout
+                  </label>
+                  <select className="select select-info w-full">
+                    <option selected>10</option>
+                    <option>5</option>
+                    <option>30</option>
+                    <option>60</option>
+                    <option>Disable</option>
+                  </select>
+                </div>
+
+                <div className="p-2 md:grid md:grid-cols-2 items-center">
+                  <label
+                    htmlFor="Traffic Interface"
+                    className="label-text text-sm font-semibold"
+                  >
+                    Traffic Interface
+                  </label>
+                  <input
+                    id="Traffic Interface"
+                    className="input input-bordered input-info w-full"
+                    placeholder="Traffic Interface"
+                    type="number"
+                    required
+                    defaultValue={1}
+                  />
+                </div>
+
+                <div className="p-2 md:grid md:grid-cols-2 items-center">
+                  <label className="label-text text-sm font-semibold">
+                    Life Report
+                  </label>
+                  <select className="select select-info w-full">
+                    <option selected>Enable</option>
+                    <option>Disable</option>
+                  </select>
                 </div>
               </div>
             </div>
-
-            <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
-              <h1 className="bg-slate-800 p-3 font-semibold">Data</h1>
-
-              <div>
-                <TextInput data="Hotspot Name" type="text" />
-                <TextInput data="DNS Name" type="text" />
-                <TextInput data="Currency (RP)" type="text" />
-                <TextInput data="Auto Load (SEC)" type="text" />
-                <TextInput data="Idle Timeout" type="text" />
-                <TextInput data="Traffic Interface" type="text" />
-                <TextInput data="Life Report" type="text" />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-3 gap-2">
-              <button className="btn btn-info text-white">Save</button>
-              <button className="btn btn-success text-white">Connect</button>
-              <button className="btn btn-warning text-white">Ping</button>
-            </div>
           </div>
-
-          <div></div>
         </div>
       </div>
     </Navbar>

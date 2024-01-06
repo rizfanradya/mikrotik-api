@@ -12,8 +12,9 @@ export default function PasswordSessionSetting() {
     <div className="flex items-center gap-3">
       <input
         id="password"
-        className="input input-bordered input-info h-10 w-full"
+        className="input input-bordered input-info w-full"
         placeholder="Password"
+        required
         type={seePassword ? "text" : "password"}
       />
       <span onClick={() => controlSeePassword()}>
