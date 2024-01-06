@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="bg-base-300">
+    <html lang="en" className="bg-base-300 tracking-wide">
       <body className={poppins.className}>{children}</body>
     </html>
   );

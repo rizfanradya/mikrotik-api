@@ -1,6 +1,7 @@
 import Navbar from "@/app/navbar";
-import { Label } from "flowbite-react";
 import { IoMdSettings } from "react-icons/io";
+import PasswordSessionSetting from "./password";
+import TextInput from "@/app/components/textInput";
 
 export default function SessionSetting() {
   return (
@@ -15,58 +16,43 @@ export default function SessionSetting() {
           <div className="grid gap-4">
             <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
               <h1 className="bg-slate-800 p-3 font-semibold">Session</h1>
-              <div className="grid grid-cols-2 items-center p-3">
-                <label htmlFor="session" className="label-text text-base">
-                  Session Name
-                </label>
-                <input
-                  id="session"
-                  className="input input-bordered input-info h-8 w-full"
-                  placeholder="Session Name"
-                  type="text"
-                />
-              </div>
+
+              <TextInput data="Session Name" type="text" />
             </div>
 
             <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
               <h1 className="bg-slate-800 p-3 font-semibold">MikroTik</h1>
+
               <div>
-                <div className="grid grid-cols-2 items-center p-3">
-                  <label htmlFor="ipmikrotik" className="label-text text-base">
-                    Ip MikroTik
-                  </label>
-                  <input
-                    id="ipmikrotik"
-                    className="input input-bordered input-info h-8 w-full"
-                    placeholder="Ip MikroTik"
-                    type="text"
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 items-center p-3">
-                  <label htmlFor="username" className="label-text text-base">
-                    Username
-                  </label>
-                  <input
-                    id="username"
-                    className="input input-bordered input-info h-8 w-full"
-                    placeholder="Username"
-                    type="text"
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 items-center p-3">
+                <TextInput data="Ip Mikrotik" type="text" />
+                <TextInput data="Username" type="text" />
+                <div className="p-2">
                   <label htmlFor="password" className="label-text text-base">
                     Password
                   </label>
-                  <input
-                    id="password"
-                    className="input input-bordered input-info h-8 w-full"
-                    placeholder="Password"
-                    type="password"
-                  />
+                  <PasswordSessionSetting />
                 </div>
               </div>
+            </div>
+
+            <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
+              <h1 className="bg-slate-800 p-3 font-semibold">Data</h1>
+
+              <div>
+                <TextInput data="Hotspot Name" type="text" />
+                <TextInput data="DNS Name" type="text" />
+                <TextInput data="Currency (RP)" type="text" />
+                <TextInput data="Auto Load (SEC)" type="text" />
+                <TextInput data="Idle Timeout" type="text" />
+                <TextInput data="Traffic Interface" type="text" />
+                <TextInput data="Life Report" type="text" />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-2">
+              <button className="btn btn-info text-white">Save</button>
+              <button className="btn btn-success text-white">Connect</button>
+              <button className="btn btn-warning text-white">Ping</button>
             </div>
           </div>
 
