@@ -13,8 +13,8 @@ export default function Login() {
   const router = useRouter();
 
   const handleLogin: SubmitHandler<Inputs> = (e) => {
-    const username = "mikhmon";
-    const password = "1234";
+    const username = "admin";
+    const password = "123456";
 
     if (e.username === username) {
       if (e.password === password) {
