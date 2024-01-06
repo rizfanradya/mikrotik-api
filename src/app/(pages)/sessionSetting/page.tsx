@@ -1,9 +1,27 @@
+"use client";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useState } from "react";
 import Navbar from "@/app/navbar";
 import { IoMdSettings } from "react-icons/io";
-import PasswordSessionSetting from "./password";
-import TextInput from "@/app/components/textInput";
+import { SubmitHandler, useForm } from "react-hook-form";
+
+type Inputs = {
+  sessionName: string;
+  ipMikrotik: string;
+  username: string;
+  password: string;
+};
 
 export default function SessionSetting() {
+  const { register, handleSubmit } = useForm<Inputs>();
+  const [seePassword, setSeePassword] = useState<boolean>(false);
+  const controlSeePassword = () => {
+    setSeePassword(!seePassword);
+  };
+  const onSubmit: SubmitHandler<Inputs> = (e) => {
+    console.log(e);
+  };
+
   return (
     <Navbar title="Session Settings">
       <div className="bg-slate-700 text-white rounded-lg overflow-hidden">
@@ -12,19 +30,69 @@ export default function SessionSetting() {
           <h1>Session Settings</h1>
         </div>
 
-        <form className="grid md:grid-cols-2 gap-4 p-3">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="grid md:grid-cols-2 gap-4 p-3"
+        >
           <div className="grid gap-4">
             <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
               <h1 className="bg-slate-800 p-3 font-semibold">Session</h1>
 
-              <TextInput data="Session Name" type="text" />
+              <div className="p-2 md:grid md:grid-cols-2 items-center">
+                <label
+                  htmlFor="Session Name"
+                  className="label-text text-sm font-semibold"
+                >
+                  Session Name
+                </label>
+                <input
+                  id="Session Name"
+                  className="input input-bordered input-info w-full"
+                  placeholder="Session Name"
+                  type="text"
+                  required
+                  {...register("sessionName", { required: true })}
+                />
+              </div>
             </div>
 
             <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
               <h1 className="bg-slate-800 p-3 font-semibold">MikroTik</h1>
 
-              <TextInput data="Ip Mikrotik" type="text" />
-              <TextInput data="Username" type="text" />
+              <div className="p-2 md:grid md:grid-cols-2 items-center">
+                <label
+                  htmlFor="Ip Mikrotik"
+                  className="label-text text-sm font-semibold"
+                >
+                  Ip Mikrotik
+                </label>
+                <input
+                  id="Ip Mikrotik"
+                  className="input input-bordered input-info w-full"
+                  placeholder="Ip Mikrotik"
+                  type="text"
+                  required
+                  {...register("ipMikrotik", { required: true })}
+                />
+              </div>
+
+              <div className="p-2 md:grid md:grid-cols-2 items-center">
+                <label
+                  htmlFor="Username"
+                  className="label-text text-sm font-semibold"
+                >
+                  Username
+                </label>
+                <input
+                  id="Username"
+                  className="input input-bordered input-info w-full"
+                  placeholder="Username"
+                  type="text"
+                  required
+                  {...register("username", { required: true })}
+                />
+              </div>
+
               <div className="p-2 md:grid md:grid-cols-2 items-center">
                 <label
                   htmlFor="password"
@@ -32,7 +100,23 @@ export default function SessionSetting() {
                 >
                   Password
                 </label>
-                <PasswordSessionSetting />
+                <div className="flex items-center gap-3">
+                  <input
+                    id="password"
+                    className="input input-bordered input-info w-full"
+                    placeholder="Password"
+                    required
+                    type={seePassword ? "text" : "password"}
+                    {...register("password", { required: true })}
+                  />
+                  <span onClick={() => controlSeePassword()}>
+                    {seePassword ? (
+                      <FaEyeSlash size="1.5em" />
+                    ) : (
+                      <FaEye size="1.5em" />
+                    )}
+                  </span>
+                </div>
               </div>
             </div>
 
@@ -46,9 +130,53 @@ export default function SessionSetting() {
           <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
             <h1 className="bg-slate-800 p-3 font-semibold">Data</h1>
 
-            <TextInput data="Hotspot Name" type="text" />
-            <TextInput data="DNS Name" type="text" />
-            <TextInput data="Currency (RP)" type="number" />
+            <div className="p-2 md:grid md:grid-cols-2 items-center">
+              <label
+                htmlFor="Hotspot Name"
+                className="label-text text-sm font-semibold"
+              >
+                Hotspot Name
+              </label>
+              <input
+                id="Hotspot Name"
+                className="input input-bordered input-info w-full"
+                placeholder="Hotspot Name"
+                type="text"
+                required
+              />
+            </div>
+
+            <div className="p-2 md:grid md:grid-cols-2 items-center">
+              <label
+                htmlFor="DNS Name"
+                className="label-text text-sm font-semibold"
+              >
+                DNS Name
+              </label>
+              <input
+                id="DNS Name"
+                className="input input-bordered input-info w-full"
+                placeholder="DNS Name"
+                type="text"
+                required
+              />
+            </div>
+
+            <div className="p-2 md:grid md:grid-cols-2 items-center">
+              <label
+                htmlFor="Currency (RP)"
+                className="label-text text-sm font-semibold"
+              >
+                Currency (RP)
+              </label>
+              <input
+                id="Currency (RP)"
+                className="input input-bordered input-info w-full"
+                placeholder="Currency (RP)"
+                type="number"
+                required
+              />
+            </div>
 
             <div className="p-2 md:grid md:grid-cols-2 items-center">
               <label
