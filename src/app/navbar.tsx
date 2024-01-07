@@ -23,14 +23,13 @@ export default function Navbar({
           <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
             <IoIosMenu size="2.2em" />
           </label>
-
           <p className="font-semibold">{title}</p>
         </div>
       </div>
 
       <div className="drawer">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content p-3">{children}</div>
+        <div className="drawer-content p-2">{children}</div>
 
         <div className="drawer-side">
           <label
@@ -39,7 +38,7 @@ export default function Navbar({
             className="drawer-overlay"
           ></label>
 
-          <ul className="menu p-3 w-80 min-h-full bg-base-100 text-base-content">
+          <ul className="menu w-3/4 sm:w-80 min-h-full bg-base-100 text-base-content">
             <Link href={"/"} className="btn btn-ghost">
               MIKROTIK API
             </Link>

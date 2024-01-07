@@ -91,7 +91,7 @@ export default function AddRouter() {
       <div className="text-white rounded-lg overflow-hidden">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="grid md:grid-cols-2 gap-4 p-2"
+          className="grid md:grid-cols-2 gap-4"
         >
           {/* session */}
           <div className="grid gap-4">
