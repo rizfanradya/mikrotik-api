@@ -19,5 +19,5 @@ export default function Home() {
       </div>
     );
   }
-  return <Navbar title="Dashboard">Dashboard</Navbar>;
+  return <Navbar title="Dashboard">Dashboard Page</Navbar>;
 }
