@@ -6,6 +6,7 @@ import { IoMdSettings } from "react-icons/io";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/utils/firebase";
+import { useRouter } from "next/navigation";
 
 type Inputs = {
   sessionName: string;
@@ -23,6 +24,7 @@ type Inputs = {
 
 export default function AddRouter() {
   const dbCollection = "sessionSettings";
+  const router = useRouter();
   const { register, handleSubmit } = useForm<Inputs>();
   const [seePassword, setSeePassword] = useState<boolean>(false);
   const [buttonSubmit, setButtonSubmit] = useState<boolean>(false);
@@ -51,6 +53,7 @@ export default function AddRouter() {
       });
       alert(`data berhasil ditambahkan\nID : ${docRef.id}`);
       setButtonSubmit(false);
+      router.push(`/adminSettings`);
     } catch (e) {
       alert(`data gagal ditambahkan\nerror : ${e}`);
     }
@@ -190,16 +193,16 @@ export default function AddRouter() {
             {/* mikrotik */}
 
             {/* button */}
-            <div className="grid grid-cols-3 gap-2">
-              {buttonSubmit ? (
-                <div className="btn btn-neutral">
-                  <span className="loading loading-spinner"></span>
-                </div>
-              ) : (
-                <button className="btn btn-info text-white">Save</button>
-              )}
+            {/* <div className="grid grid-cols-3 gap-2"> */}
+            {buttonSubmit ? (
+              <div className="btn btn-neutral">
+                <span className="loading loading-spinner"></span>
+              </div>
+            ) : (
+              <button className="btn btn-success text-white">Save</button>
+            )}
 
-              {/* {buttonConnect ? (
+            {/* {buttonConnect ? (
                 <div className="btn btn-neutral">
                   <span className="loading loading-spinner"></span>
                 </div>
@@ -224,8 +227,8 @@ export default function AddRouter() {
                   Ping
                 </div>
               )} */}
-            </div>
           </div>
+          {/* </div> */}
           {/* button */}
 
           {/* data */}

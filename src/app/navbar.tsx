@@ -50,12 +50,6 @@ export default function Navbar({
               </Link>
             </li>
             <li>
-              <Link href={"/sessionSetting"}>
-                <IoMdSettings size="1.5em" />
-                Session Setting
-              </Link>
-            </li>
-            <li>
               <Link href={"/uploadLogo"}>
                 <FaUpload size="1.5em" />
                 Upload Logo
