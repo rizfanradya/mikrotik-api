@@ -2,7 +2,6 @@
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { useState } from "react";
 import Navbar from "@/app/navbar";
-import { IoMdSettings } from "react-icons/io";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "@/utils/firebase";
@@ -23,7 +22,7 @@ type Inputs = {
 };
 
 export default function AddRouter() {
-  const dbCollection = "sessionSettings";
+  const dbCollection = "router";
   const router = useRouter();
   const { register, handleSubmit } = useForm<Inputs>();
   const [seePassword, setSeePassword] = useState<boolean>(false);
@@ -53,7 +52,7 @@ export default function AddRouter() {
       });
       alert(`data berhasil ditambahkan\nID : ${docRef.id}`);
       setButtonSubmit(false);
-      router.push(`/adminSettings`);
+      router.push(`/routerSettings`);
     } catch (e) {
       alert(`data gagal ditambahkan\nerror : ${e}`);
     }
@@ -88,33 +87,24 @@ export default function AddRouter() {
   // };
 
   return (
-    <Navbar title="Session Settings">
-      <div className="bg-slate-700 text-white rounded-lg overflow-hidden">
-        <div className="flex items-center gap-2 font-semibold bg-slate-800 p-3">
-          <IoMdSettings size="1.5em" />
-          <h1>Session Settings</h1>
-        </div>
-
+    <Navbar title="Add Router">
+      <div className="text-white rounded-lg overflow-hidden">
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="grid md:grid-cols-2 gap-4 p-3"
+          className="grid md:grid-cols-2 gap-4 p-2"
         >
           {/* session */}
           <div className="grid gap-4">
-            <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
-              <h1 className="bg-slate-800 p-3 font-semibold">Session</h1>
+            <div className="border-primary border-2 overflow-hidden rounded-lg bg-base-200">
+              <h1 className="bg-primary p-1 font-semibold">Session</h1>
 
               <div className="p-2 md:grid md:grid-cols-2 items-center">
-                <label
-                  htmlFor="Session Name"
-                  className="label-text text-sm font-semibold"
-                >
+                <label htmlFor="Session Name" className="label-text">
                   Session Name
                 </label>
                 <input
                   id="Session Name"
-                  className="input input-bordered input-info w-full"
-                  placeholder="Session Name"
+                  className="input input-bordered input-sm w-full"
                   type="text"
                   required
                   {...register("sessionName", { required: true })}
@@ -124,20 +114,16 @@ export default function AddRouter() {
             {/* session */}
 
             {/* mikrotik */}
-            <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
-              <h1 className="bg-slate-800 p-3 font-semibold">MikroTik</h1>
+            <div className="border-primary border-2 overflow-hidden rounded-lg">
+              <h1 className="bg-primary p-1 font-semibold">MikroTik</h1>
 
               <div className="p-2 md:grid md:grid-cols-2 items-center">
-                <label
-                  htmlFor="Ip Mikrotik"
-                  className="label-text text-sm font-semibold"
-                >
+                <label htmlFor="Ip Mikrotik" className="label-text">
                   Ip Mikrotik
                 </label>
                 <input
                   id="Ip Mikrotik"
-                  className="input input-bordered input-info w-full"
-                  placeholder="Ip Mikrotik"
+                  className="input input-bordered input-sm w-full"
                   type="text"
                   required
                   {...register("ipMikrotik", { required: true })}
@@ -145,16 +131,12 @@ export default function AddRouter() {
               </div>
 
               <div className="p-2 md:grid md:grid-cols-2 items-center">
-                <label
-                  htmlFor="Username"
-                  className="label-text text-sm font-semibold"
-                >
+                <label htmlFor="Username" className="label-text">
                   Username
                 </label>
                 <input
                   id="Username"
-                  className="input input-bordered input-info w-full"
-                  placeholder="Username"
+                  className="input input-bordered input-sm w-full"
                   type="text"
                   required
                   {...register("username", { required: true })}
@@ -162,17 +144,13 @@ export default function AddRouter() {
               </div>
 
               <div className="p-2 md:grid md:grid-cols-2 items-center">
-                <label
-                  htmlFor="password"
-                  className="label-text text-sm font-semibold"
-                >
+                <label htmlFor="password" className="label-text">
                   Password
                 </label>
                 <div className="flex items-center gap-3">
                   <input
                     id="password"
-                    className="input input-bordered input-info w-full"
-                    placeholder="Password"
+                    className="input input-bordered input-sm w-full"
                     required
                     type={seePassword ? "text" : "password"}
                     {...register("password", { required: true })}
@@ -232,20 +210,16 @@ export default function AddRouter() {
           {/* button */}
 
           {/* data */}
-          <div className="border-slate-800 border-2 overflow-hidden rounded-lg">
-            <h1 className="bg-slate-800 p-3 font-semibold">Data</h1>
+          <div className="border-primary border-2 overflow-hidden rounded-lg">
+            <h1 className="bg-primary p-1 font-semibold">Data</h1>
 
             <div className="p-2 md:grid md:grid-cols-2 items-center">
-              <label
-                htmlFor="Hotspot Name"
-                className="label-text text-sm font-semibold"
-              >
+              <label htmlFor="Hotspot Name" className="label-text">
                 Hotspot Name
               </label>
               <input
                 id="Hotspot Name"
-                className="input input-bordered input-info w-full"
-                placeholder="Hotspot Name"
+                className="input input-bordered input-sm w-full"
                 type="text"
                 required
                 {...register("hotspotName", { required: true })}
@@ -253,16 +227,12 @@ export default function AddRouter() {
             </div>
 
             <div className="p-2 md:grid md:grid-cols-2 items-center">
-              <label
-                htmlFor="DNS Name"
-                className="label-text text-sm font-semibold"
-              >
+              <label htmlFor="DNS Name" className="label-text">
                 DNS Name
               </label>
               <input
                 id="DNS Name"
-                className="input input-bordered input-info w-full"
-                placeholder="DNS Name"
+                className="input input-bordered input-sm w-full"
                 type="text"
                 required
                 {...register("dnsName", { required: true })}
@@ -270,16 +240,12 @@ export default function AddRouter() {
             </div>
 
             <div className="p-2 md:grid md:grid-cols-2 items-center">
-              <label
-                htmlFor="Currency (RP)"
-                className="label-text text-sm font-semibold"
-              >
+              <label htmlFor="Currency (RP)" className="label-text">
                 Currency (RP)
               </label>
               <input
                 id="Currency (RP)"
-                className="input input-bordered input-info w-full"
-                placeholder="Currency (RP)"
+                className="input input-bordered input-sm w-full"
                 type="number"
                 required
                 {...register("currency", { required: true })}
@@ -287,16 +253,12 @@ export default function AddRouter() {
             </div>
 
             <div className="p-2 md:grid md:grid-cols-2 items-center">
-              <label
-                htmlFor="Auto Load (SEC)"
-                className="label-text text-sm font-semibold"
-              >
+              <label htmlFor="Auto Load (SEC)" className="label-text">
                 Auto Load (SEC)
               </label>
               <input
                 id="Auto Load (SEC)"
-                className="input input-bordered input-info w-full"
-                placeholder="Auto Load (SEC)"
+                className="input input-bordered input-sm w-full"
                 type="number"
                 required
                 defaultValue={10}
@@ -305,11 +267,9 @@ export default function AddRouter() {
             </div>
 
             <div className="p-2 md:grid md:grid-cols-2 items-center">
-              <label className="label-text text-sm font-semibold">
-                Idle Timeout
-              </label>
+              <label className="label-text">Idle Timeout</label>
               <select
-                className="select select-info w-full"
+                className="select select-bordered select-sm w-full py-0"
                 {...register("idleTimeout", { required: true })}
               >
                 <option defaultValue={10}>10</option>
@@ -321,16 +281,12 @@ export default function AddRouter() {
             </div>
 
             <div className="p-2 md:grid md:grid-cols-2 items-center">
-              <label
-                htmlFor="Traffic Interface"
-                className="label-text text-sm font-semibold"
-              >
+              <label htmlFor="Traffic Interface" className="label-text">
                 Traffic Interface
               </label>
               <input
                 id="Traffic Interface"
-                className="input input-bordered input-info w-full"
-                placeholder="Traffic Interface"
+                className="input input-bordered input-sm w-full"
                 type="number"
                 required
                 defaultValue={1}
@@ -339,11 +295,9 @@ export default function AddRouter() {
             </div>
 
             <div className="p-2 md:grid md:grid-cols-2 items-center">
-              <label className="label-text text-sm font-semibold">
-                Life Report
-              </label>
+              <label className="label-text">Life Report</label>
               <select
-                className="select select-info w-full"
+                className="select select-bordered select-sm w-full py-0"
                 {...register("lifeReport", { required: true })}
               >
                 <option defaultValue={"enable"}>Enable</option>

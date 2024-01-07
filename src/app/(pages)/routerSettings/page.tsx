@@ -5,9 +5,9 @@ import { MdDelete } from "react-icons/md";
 
 const data = [{ hotspotName: "hotspot1", sessionName: "session1" }];
 
-export default function AdminSettings() {
+export default function RouterSettings() {
   return (
-    <Navbar title="Admin Settings">
+    <Navbar title="Router Settings">
       <div className="card shadow-xl bg-base-100 p-4">
         <p className="card-title">
           <FaServer /> Router List
