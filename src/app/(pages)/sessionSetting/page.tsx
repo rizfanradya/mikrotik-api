@@ -200,11 +200,11 @@ export default function SessionSetting() {
                 Idle Timeout
               </label>
               <select className="select select-info w-full">
-                <option selected>10</option>
-                <option>5</option>
-                <option>30</option>
-                <option>60</option>
-                <option>Disable</option>
+                <option defaultValue={10}>10</option>
+                <option value={5}>5</option>
+                <option value={30}>30</option>
+                <option value={60}>60</option>
+                <option value={"disable"}>Disable</option>
               </select>
             </div>
 
@@ -230,8 +230,8 @@ export default function SessionSetting() {
                 Life Report
               </label>
               <select className="select select-info w-full">
-                <option selected>Enable</option>
-                <option>Disable</option>
+                <option defaultValue={"enable"}>Enable</option>
+                <option value={"disable"}>Disable</option>
               </select>
             </div>
           </div>
