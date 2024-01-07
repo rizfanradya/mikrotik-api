@@ -1,13 +1,9 @@
 import Link from "next/link";
 import { ReactNode } from "react";
-import {
-  IoIosLogOut,
-  IoIosMenu,
-  IoMdSettings,
-  IoMdAddCircle,
-} from "react-icons/io";
+import { IoIosMenu, IoMdSettings, IoMdAddCircle } from "react-icons/io";
 import { AiFillDashboard } from "react-icons/ai";
-import { FaUpload, FaEdit, FaInfoCircle } from "react-icons/fa";
+import { FaUpload } from "react-icons/fa";
+import Logout from "./components/logout";
 
 export default function Navbar({
   children,
@@ -67,12 +63,7 @@ export default function Navbar({
                 Upload Logo
               </Link>
             </li>
-            <li>
-              <Link href={"/logout"}>
-                <IoIosLogOut size="1.5em" />
-                Logout
-              </Link>
-            </li>
+            <Logout />
           </ul>
         </div>
       </div>
