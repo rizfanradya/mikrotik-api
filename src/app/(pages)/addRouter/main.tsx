@@ -31,25 +31,31 @@ export default function AddRouterLayout() {
 
   const onSubmit: SubmitHandler<Inputs> = async (e) => {
     setButtonSubmit(true);
-    try {
-      const docRef = await addDoc(collection(db, dbCollection), {
-        sessionName: e.sessionName,
-        ipMikrotik: e.ipMikrotik,
-        username: e.username,
-        password: e.password,
-        hotspotName: e.hotspotName,
-        dnsName: e.dnsName,
-        currency: e.currency,
-        autoLoad: e.autoLoad,
-        idleTimeout: e.idleTimeout,
-        trafficInterface: e.trafficInterface,
-        lifeReport: e.lifeReport,
-      });
-      alert(`data berhasil ditambahkan\nID : ${docRef.id}`);
+    const confirmAddData = confirm("apakah anda yakin ?");
+
+    if (confirmAddData) {
+      try {
+        const docRef = await addDoc(collection(db, dbCollection), {
+          sessionName: e.sessionName,
+          ipMikrotik: e.ipMikrotik,
+          username: e.username,
+          password: e.password,
+          hotspotName: e.hotspotName,
+          dnsName: e.dnsName,
+          currency: e.currency,
+          autoLoad: e.autoLoad,
+          idleTimeout: e.idleTimeout,
+          trafficInterface: e.trafficInterface,
+          lifeReport: e.lifeReport,
+        });
+        alert(`data berhasil ditambahkan\nID : ${docRef.id}`);
+        setButtonSubmit(false);
+        router.push(`/routerSettings`);
+      } catch (e) {
+        alert(`data gagal ditambahkan\nerror : ${e}`);
+      }
+    } else {
       setButtonSubmit(false);
-      router.push(`/routerSettings`);
-    } catch (e) {
-      alert(`data gagal ditambahkan\nerror : ${e}`);
     }
   };
 
