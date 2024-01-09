@@ -1,9 +1,8 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import Navbar from "@/app/navbar";
 import { signIn, useSession } from "next-auth/react";
 import LoadingSpinner from "@/app/components/loading";
-import FormAddRouter from "./formAddRouter";
+import AddRouterLayout from "./layout";
 
 export default function AddRouter() {
   const { data: session, status } = useSession();
@@ -53,11 +52,5 @@ export default function AddRouter() {
   //   }
   // };
 
-  return (
-    <Navbar title="Add Router">
-      <div className="text-white rounded-lg overflow-hidden">
-        <FormAddRouter />
-      </div>
-    </Navbar>
-  );
+  return <AddRouterLayout />;
 }
