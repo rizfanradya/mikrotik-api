@@ -21,45 +21,21 @@ const authOptions: NextAuthOptions = {
           password: string;
         };
 
-        const usernameData = query(
-          collection(db, "admin"),
-          where("username", "==", "admin")
-        );
-        const passwordData = query(
-          collection(db, "admin"),
-          where("password", "==", "123456")
-        );
-
-        const usernameQuerySnapshot = await getDocs(usernameData);
-        const passwordQuerySnapshot = await getDocs(passwordData);
-        const hasUsernameMatchingData = usernameQuerySnapshot.docs.some(
-          (doc) => {
-            const data = doc.data();
-            if (data.username === username) {
-              const hasPasswordMatchingData = passwordQuerySnapshot.docs.some(
-                (doc) => {
-                  const data = doc.data();
-                  if (data.password === password) {
-                    return data.username;
-                  } else if (data.password !== password) {
-                    throw new Error("password salah");
-                  } else {
-                    throw new Error("server error");
-                  }
-                }
-              );
-              return hasPasswordMatchingData;
-            } else if (data.username !== "admin") {
-              throw new Error("username salah");
-            } else {
-              throw new Error("server error");
-            }
+        const data: any = [];
+        const querySnapshot = await getDocs(collection(db, "admin"));
+        querySnapshot.forEach((doc) => data.push(doc.data()));
+        if (data[0].username === username) {
+          if (data[0].password === password) {
+            return {
+              username: data[0].username,
+              id: "JY18wz3Fw6A7Q4hJxPDQ",
+            };
+          } else {
+            throw new Error("password-salah");
           }
-        );
-        return {
-          username: hasUsernameMatchingData,
-          id: "JY18wz3Fw6A7Q4hJxPDQ",
-        };
+        } else {
+          throw new Error("username-tidak-ditemukan");
+        }
       },
     }),
   ],

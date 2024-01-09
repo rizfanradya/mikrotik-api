@@ -1,7 +1,7 @@
 "use client";
 import { signIn, useSession } from "next-auth/react";
 import LoadingSpinner from "@/app/components/loading";
-import RouterSettingsLayout from "./layout";
+import RouterSettingsLayout from "./main";
 
 export default function RouterSettings() {
   const { data: session, status } = useSession();
@@ -18,7 +18,7 @@ export default function RouterSettings() {
         </button>
       </div>
     );
+  } else {
+    return <RouterSettingsLayout />;
   }
-
-  return <RouterSettingsLayout />;
 }

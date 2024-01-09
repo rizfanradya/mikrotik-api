@@ -29,10 +29,6 @@ export default function AddRouterLayout() {
   const [seePassword, setSeePassword] = useState<boolean>(false);
   const [buttonSubmit, setButtonSubmit] = useState<boolean>(false);
 
-  const controlSeePassword = () => {
-    setSeePassword(!seePassword);
-  };
-
   const onSubmit: SubmitHandler<Inputs> = async (e) => {
     setButtonSubmit(true);
     try {
@@ -128,7 +124,7 @@ export default function AddRouterLayout() {
                   />
                   <span
                     className="cursor-pointer"
-                    onClick={() => controlSeePassword()}
+                    onClick={() => setSeePassword(!seePassword)}
                   >
                     {seePassword ? (
                       <FaEyeSlash size="1.5em" />
