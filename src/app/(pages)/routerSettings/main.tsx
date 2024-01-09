@@ -25,17 +25,24 @@ export default function RouterSettingsLayout() {
 
   const onSubmit: SubmitHandler<Inputs> = async (e) => {
     setButtonSubmit(true);
-    try {
-      await setDoc(doc(db, "admin", "xR13wWK5ZpED3SWYW3sj"), {
-        username: e.username,
-        password: e.password,
-      });
-      alert(
-        `data berhasil diperbarui\nsilahkan login menggunakan data yang telah anda perbarui`
-      );
+    const confirmSave = confirm("apakah anda yakin ?");
+
+    if (confirmSave) {
+      try {
+        await setDoc(doc(db, "admin", "xR13wWK5ZpED3SWYW3sj"), {
+          username: e.username,
+          password: e.password,
+        });
+        alert(
+          `data berhasil diperbarui\nsilahkan login menggunakan data yang telah anda perbarui`
+        );
+        setButtonSubmit(false);
+      } catch (e) {
+        alert(`data gagal diperbarui`);
+        setButtonSubmit(false);
+      }
+    } else {
       setButtonSubmit(false);
-    } catch (e) {
-      alert(`data gagal diperbarui`);
     }
   };
 
