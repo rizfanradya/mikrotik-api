@@ -46,9 +46,9 @@ export default function Navbar({
               </Link>
             </li>
             <li>
-              <Link href={"/routerSettings"}>
+              <Link href={"/settings"}>
                 <IoMdSettings size="1.5em" />
-                Router Settings
+                Settings
               </Link>
             </li>
             <li>
