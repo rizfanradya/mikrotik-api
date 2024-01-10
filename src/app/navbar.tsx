@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ReactNode } from "react";
-import { IoIosMenu, IoMdSettings, IoMdAddCircle } from "react-icons/io";
+import { IoIosMenu, IoMdSettings } from "react-icons/io";
 import { AiFillDashboard } from "react-icons/ai";
 import { FaUpload } from "react-icons/fa";
 import Logout from "./components/logout";
@@ -49,12 +49,6 @@ export default function Navbar({
               <Link href={"/routerSettings"}>
                 <IoMdSettings size="1.5em" />
                 Router Settings
-              </Link>
-            </li>
-            <li>
-              <Link href={"/addRouter"}>
-                <IoMdAddCircle size="1.5em" />
-                Add Router
               </Link>
             </li>
             <li>
