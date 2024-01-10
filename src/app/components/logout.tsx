@@ -4,11 +4,8 @@ import { IoIosLogOut } from "react-icons/io";
 
 export default function Logout() {
   return (
-    <li onClick={() => signOut()}>
-      <span>
-        <IoIosLogOut size="1.5em" />
-        Logout
-      </span>
-    </li>
+    <div className="px-4 cursor-pointer" onClick={() => signOut()}>
+      <IoIosLogOut size="1.7em" />
+    </div>
   );
 }

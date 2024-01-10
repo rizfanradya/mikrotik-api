@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ReactNode } from "react";
 import { IoIosMenu, IoMdSettings } from "react-icons/io";
 import { AiFillDashboard } from "react-icons/ai";
-import { FaUpload } from "react-icons/fa";
 import Logout from "./components/logout";
 
 export default function Navbar({
@@ -15,11 +14,12 @@ export default function Navbar({
   return (
     <>
       <div className="navbar bg-base-300">
-        <div className="flex-1 gap-3">
+        <div className="flex-1 gap-3 justify-between">
           <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
             <IoIosMenu size="2.2em" />
           </label>
           <p className="font-semibold">{title}</p>
+          <Logout />
         </div>
       </div>
 
@@ -51,13 +51,6 @@ export default function Navbar({
                 Settings
               </Link>
             </li>
-            <li>
-              <Link href={"/uploadLogo"}>
-                <FaUpload size="1.5em" />
-                Upload Logo
-              </Link>
-            </li>
-            <Logout />
           </ul>
         </div>
       </div>

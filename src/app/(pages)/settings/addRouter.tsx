@@ -76,7 +76,10 @@ export default function AddRouter() {
       )}
       {/* toast */}
 
-      <label htmlFor="my_modal_7" className="btn btn-accent text-white mb-3">
+      <label
+        htmlFor="my_modal_7"
+        className="btn btn-accent text-white mb-3 h-max"
+      >
         <IoMdAddCircle size="1.5em" /> Add Router
       </label>
 

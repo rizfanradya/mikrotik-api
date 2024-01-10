@@ -11,6 +11,7 @@ import Link from "next/link";
 import randomColor from "randomcolor";
 import AddRouter from "./addRouter";
 import EditDataAdmin from "./editDataAdmin";
+import UploadLogo from "./uploadLogo";
 
 export default function RouterSettingsLayout() {
   const dataRouter = retrieveData("router");
@@ -48,7 +49,7 @@ export default function RouterSettingsLayout() {
   }, []);
 
   return (
-    <Navbar title="Router Settings">
+    <Navbar title="Settings">
       {/* toast */}
       {toastSuccessDeleteData && (
         <div className="toast toast-top toast-center">
@@ -67,7 +68,10 @@ export default function RouterSettingsLayout() {
       )}
       {/* toast */}
 
-      <AddRouter />
+      <div className="grid grid-cols-2 sm:flex gap-3">
+        <AddRouter />
+        <UploadLogo />
+      </div>
 
       <div className="md:flex">
         {/* router list */}
