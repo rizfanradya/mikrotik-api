@@ -9,13 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/randomcolor": "^0.5.9",
     "axios": "^1.6.5",
     "firebase": "^10.7.1",
     "flowbite-react": "^0.7.2",
+    "nanoid": "^5.0.4",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
-    "randomcolor": "^0.6.2",
+    "path": "^0.12.7",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.49.2"

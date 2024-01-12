@@ -5,32 +5,28 @@ import { retrieveData } from "@/utils/retrieveData";
 import { db } from "@/utils/firebase";
 import { useEffect, useRef, useState } from "react";
 import { CiMenuKebab } from "react-icons/ci";
-import { FaServer, FaRegCheckCircle } from "react-icons/fa";
-import { GiCancel } from "react-icons/gi";
+import { FaServer } from "react-icons/fa";
 import Link from "next/link";
 import AddRouter from "./addRouter";
-import EditDataAdmin from "./editDataAdmin";
-import UploadLogo from "./uploadLogo";
 import axios from "axios";
 
 export default function RouterSettingsLayout() {
-  const dataRouter = retrieveData("router");
   const [menuData, setMenuData] = useState<any>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
-  const [toastSuccessDeleteData, setToastSuccessDeleteData] =
-    useState<boolean>(false);
-  const [toastFailedDeleteData, setToastFailedDeleteData] =
-    useState<boolean>(false);
+
+  const [dataRouter, setDataRouter] = useState<any>();
+  useEffect(() => {
+    const res = async () => {
+      const fetchData = await retrieveData("router");
+      setDataRouter(fetchData);
+    };
+    res();
+  }, []);
 
   const deleteData: any = async (id: string) => {
     try {
       await deleteDoc(doc(db, "router", id));
-      setToastSuccessDeleteData(true);
-      setTimeout(() => setToastSuccessDeleteData(false), 3000);
-    } catch (e) {
-      setToastFailedDeleteData(true);
-      setTimeout(() => setToastFailedDeleteData(false), 3000);
-    }
+    } catch (e) {}
   };
 
   const toggleMenu = (id: string) => {
@@ -61,27 +57,8 @@ export default function RouterSettingsLayout() {
 
   return (
     <Navbar title="Settings">
-      {/* toast */}
-      {toastSuccessDeleteData && (
-        <div className="toast toast-top toast-center">
-          <div className="alert alert-success font-semibold flex justify-center items-center text-white">
-            <FaRegCheckCircle size="1.5em" /> Data Berhasil Dihapus
-          </div>
-        </div>
-      )}
-
-      {toastFailedDeleteData && (
-        <div className="toast toast-top toast-center">
-          <div className="alert alert-error font-semibold flex justify-center items-center text-white">
-            <GiCancel size="1.5em" /> Data Gagal Dihapus
-          </div>
-        </div>
-      )}
-      {/* toast */}
-
       <div className="grid grid-cols-2 sm:flex gap-3">
         <AddRouter />
-        <UploadLogo />
       </div>
 
       <div className="md:flex">
@@ -148,8 +125,6 @@ export default function RouterSettingsLayout() {
           )}
         </div>
         {/* router list */}
-
-        <EditDataAdmin />
       </div>
     </Navbar>
   );
