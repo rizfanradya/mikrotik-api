@@ -58,8 +58,8 @@ export default function EditDataAdmin() {
       )}
       {/* toast */}
 
-      <div className="border-primary border-2 overflow-hidden rounded-lg bg-base-200 h-max">
-        <h1 className="bg-primary p-1 font-semibold text-white">Admin</h1>
+      <div className="overflow-hidden rounded-lg h-max border border-base-content">
+        <h1 className="p-2 font-semibold text-white">Admin</h1>
 
         {dataAdmin ? (
           <form onSubmit={handleSubmit(onSubmit)} className="p-4 grid gap-5">

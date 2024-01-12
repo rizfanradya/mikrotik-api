@@ -78,7 +78,7 @@ export default function AddRouter() {
 
       <label
         htmlFor="my_modal_7"
-        className="btn btn-accent text-white mb-3 h-max"
+        className="btn btn-neutral text-white mb-3 h-max"
       >
         <IoMdAddCircle size="1.5em" /> Add Router
       </label>
@@ -97,8 +97,8 @@ export default function AddRouter() {
           >
             {/* session */}
             <div className="grid gap-4">
-              <div className="border-primary border-2 overflow-hidden rounded-lg bg-base-200">
-                <h1 className="bg-primary p-1 font-semibold">Session</h1>
+              <div className="overflow-hidden rounded-lg">
+                <h1 className="p-1 font-semibold">Session</h1>
 
                 <div className="p-2 md:grid md:grid-cols-2 items-center">
                   <label htmlFor="Session Name" className="label-text">
@@ -116,8 +116,8 @@ export default function AddRouter() {
               {/* session */}
 
               {/* mikrotik */}
-              <div className="border-primary border-2 overflow-hidden rounded-lg">
-                <h1 className="bg-primary p-1 font-semibold">MikroTik</h1>
+              <div className="overflow-hidden rounded-lg">
+                <h1 className="p-1 font-semibold">MikroTik</h1>
 
                 <div className="p-2 md:grid md:grid-cols-2 items-center">
                   <label htmlFor="Ip Mikrotik" className="label-text">
@@ -184,7 +184,7 @@ export default function AddRouter() {
 
                 <label
                   htmlFor="my_modal_7"
-                  className="btn btn-warning text-white"
+                  className="btn btn-neutral text-white"
                 >
                   close
                 </label>
@@ -193,8 +193,8 @@ export default function AddRouter() {
             {/* button */}
 
             {/* data */}
-            <div className="border-primary border-2 overflow-hidden rounded-lg">
-              <h1 className="bg-primary p-1 font-semibold">Data</h1>
+            <div className="overflow-hidden rounded-lg">
+              <h1 className="p-1 font-semibold">Data</h1>
 
               <div className="p-2 md:grid md:grid-cols-2 items-center">
                 <label htmlFor="Hotspot Name" className="label-text">

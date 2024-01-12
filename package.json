@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/randomcolor": "^0.5.9",
+    "axios": "^1.6.5",
     "firebase": "^10.7.1",
     "flowbite-react": "^0.7.2",
     "next": "14.0.4",

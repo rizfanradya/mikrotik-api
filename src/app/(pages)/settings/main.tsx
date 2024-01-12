@@ -8,10 +8,10 @@ import { CiMenuKebab } from "react-icons/ci";
 import { FaServer, FaRegCheckCircle } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import Link from "next/link";
-import randomColor from "randomcolor";
 import AddRouter from "./addRouter";
 import EditDataAdmin from "./editDataAdmin";
 import UploadLogo from "./uploadLogo";
+import axios from "axios";
 
 export default function RouterSettingsLayout() {
   const dataRouter = retrieveData("router");
@@ -48,6 +48,17 @@ export default function RouterSettingsLayout() {
     };
   }, []);
 
+  const mikrotik = async () => {
+    try {
+      const getData = await axios.get(
+        "https://202.154.56.29:2010/api/resource"
+      );
+      return getData;
+    } catch (e) {
+      return e;
+    }
+  };
+
   return (
     <Navbar title="Settings">
       {/* toast */}
@@ -75,10 +86,8 @@ export default function RouterSettingsLayout() {
 
       <div className="md:flex">
         {/* router list */}
-        <div className="border-primary border-2 rounded-lg bg-base-200 w-full mb-4 md:mb-0 md:mr-4">
-          <h1 className="bg-primary p-1 font-semibold text-white">
-            Router List
-          </h1>
+        <div className="rounded-lg w-full mb-4 md:mb-0 md:mr-4 border border-base-content">
+          <h1 className="p-2 font-semibold text-white">Router List</h1>
 
           {dataRouter ? (
             <div
@@ -94,11 +103,7 @@ export default function RouterSettingsLayout() {
                     <span className="absolute font-semibold drop-shadow-[0_2px_2px_rgba(0,0,0,1)] text-4xl">
                       {index + 1}
                     </span>
-                    <span
-                      style={{ color: randomColor({ luminosity: "light" }) }}
-                    >
-                      <FaServer size="3em" />
-                    </span>
+                    <FaServer size="3em" />
                   </div>
 
                   <div>

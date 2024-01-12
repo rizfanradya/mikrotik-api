@@ -8,7 +8,7 @@ export default function UploadLogo() {
     <>
       <label
         htmlFor="my_modal_1"
-        className="btn btn-info text-white mb-3 h-max"
+        className="btn btn-neutral text-white mb-3 h-max"
       >
         <FaUpload size="1.5em" /> Edit Logo
       </label>
@@ -29,10 +29,12 @@ export default function UploadLogo() {
             />
 
             <div className="modal-action">
-              <button className="btn btn-info text-white">Upload Logo</button>
+              <button className="btn btn-success text-white">
+                Upload Logo
+              </button>
               <label
                 htmlFor="my_modal_1"
-                className="btn btn-warning text-white"
+                className="btn btn-neutral text-white"
               >
                 Close
               </label>
