@@ -57,12 +57,12 @@ export default function FormUploadLogo() {
           logo: downloadURL,
         });
         setButtonSubmit(false);
-        alert("logo berhasil diupdate !!");
+        alert(`logo "BERHASIL" diupdate !!`);
         window.location.reload();
       } catch (err) {
         console.log(err);
         setButtonSubmit(false);
-        alert("logo gagal diupdate !!");
+        alert(`logo "GAGAL" diupdate !!`);
         window.location.reload();
       }
     }
