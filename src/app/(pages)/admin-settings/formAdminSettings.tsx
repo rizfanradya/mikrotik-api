@@ -33,11 +33,11 @@ export default function FormAdminSettings() {
           password: e.password,
         });
         setButtonSubmit(false);
-        alert("data admin berhasil diperbarui !!");
+        alert(`data admin "BERHASIL" diperbarui !!`);
         window.location.reload();
       } catch (e) {
         setButtonSubmit(false);
-        alert("data admin gagal diperbarui !!");
+        alert(`data admin "GAGAL" diperbarui !!`);
         window.location.reload();
       }
     }

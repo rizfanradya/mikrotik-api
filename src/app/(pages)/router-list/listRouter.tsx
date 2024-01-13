@@ -28,11 +28,11 @@ export default function ListRouter() {
       try {
         await deleteDoc(doc(db, "router", id));
         setButtonDelete(false);
-        alert(`sesi : ${sessionName} berhasil dihapus !!`);
+        alert(`sesi : ${sessionName} "BERHASIL" dihapus !!`);
         window.location.reload();
       } catch (e) {
         setButtonDelete(false);
-        alert(`sesi : ${sessionName} gagal dihapus !!`);
+        alert(`sesi : ${sessionName} "GAGAL" dihapus !!`);
         window.location.reload();
       }
     }
@@ -108,7 +108,7 @@ export default function ListRouter() {
                         <Link href={"/"}>Ping</Link>
                       </li>
                       <li>
-                        <Link href={"/"}>Edit</Link>
+                        <Link href={`/edit-router/${doc.id}`}>Edit</Link>
                       </li>
                       {buttonDelete ? (
                         <li className="m-auto">

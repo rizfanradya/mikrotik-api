@@ -46,11 +46,11 @@ export default function FormAddRouter() {
           lifeReport: e.lifeReport,
         });
         setButtonSubmit(false);
-        alert(`sesi ${e.sessionName} berhasil ditambahkan !!`);
+        alert(`sesi ${e.sessionName} "BERHASIL" ditambahkan !!`);
         router.push("/router-list");
       } catch (err) {
         setButtonSubmit(false);
-        alert(`sesi ${e.sessionName} gagal ditambahkan !!`);
+        alert(`sesi ${e.sessionName} "GAGAL" ditambahkan !!`);
       }
     }
   };
