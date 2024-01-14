@@ -11,6 +11,7 @@ import { FaServer } from "react-icons/fa";
 
 export default function ListRouter() {
   const [buttonDelete, setButtonDelete] = useState<boolean>(false);
+  const [buttonPing, setButtonPing] = useState<boolean>(false);
 
   const [dataRouter, setDataRouter] = useState<any>();
   useEffect(() => {
@@ -21,17 +22,20 @@ export default function ListRouter() {
     res();
   }, []);
 
-  const ping = (host: string) => {
-    const pingTest = false;
+  const ping = async (host: string) => {
     const errCode = 111;
     const errorMess = "connection refused";
-
-    if (pingTest) {
+    setButtonPing(true);
+    try {
+      await axios.get(`https://${host}/api/resource`);
       alert(`host : ${host}\nping "OK" !!`);
-    } else {
+      setButtonPing(false);
+    } catch (error) {
       alert(
         `host : ${host}\nerror code : ${errCode}\nerror message : ${errorMess}\nping "TIMEOUT" !!`
       );
+      setButtonPing(false);
+      console.log(error);
     }
   };
 
@@ -70,18 +74,6 @@ export default function ListRouter() {
       document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
-  // const mikrotik = async () => {
-  //   try {
-  //     const fetch = await axios.get("https://202.154.56.29:2010/api/resource", {
-  //       headers: { "Content-Type": "aplication/json" },
-  //     });
-  //     console.log(fetch);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-  // mikrotik();
 
   return (
     <Navbar title="Router List">
@@ -122,9 +114,15 @@ export default function ListRouter() {
                         <Link href={"/"}>Connect</Link>
                       </li>
 
-                      <li>
-                        <span onClick={() => ping(doc.ipMikrotik)}>Ping</span>
-                      </li>
+                      {buttonPing ? (
+                        <li className="m-auto">
+                          <span className="loading loading-spinner"></span>
+                        </li>
+                      ) : (
+                        <li>
+                          <span onClick={() => ping(doc.ipMikrotik)}>Ping</span>
+                        </li>
+                      )}
 
                       <li>
                         <Link href={`/edit-router/${doc.id}`}>Edit</Link>
