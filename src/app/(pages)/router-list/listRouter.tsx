@@ -22,12 +22,14 @@ export default function ListRouter() {
     res();
   }, []);
 
-  const ping = async (host: string) => {
+  const ping = async (host: string, username: string, password: string) => {
     const errCode = 111;
     const errorMess = "connection refused";
     setButtonPing(true);
     try {
-      await axios.get(`https://${host}/api/resource`);
+      await axios.get(`https://${host}`, {
+        auth: { username, password },
+      });
       alert(`host : ${host}\nping "OK" !!`);
       setButtonPing(false);
     } catch (error) {
@@ -120,7 +122,13 @@ export default function ListRouter() {
                         </li>
                       ) : (
                         <li>
-                          <span onClick={() => ping(doc.ipMikrotik)}>Ping</span>
+                          <span
+                            onClick={() =>
+                              ping(doc.ipMikrotik, doc.username, doc.password)
+                            }
+                          >
+                            Ping
+                          </span>
                         </li>
                       )}
 
