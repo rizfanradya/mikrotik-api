@@ -44,7 +44,7 @@ export default function FormAdminSettings() {
   };
 
   return (
-    <div className="max-w-sm bg-base-300 rounded-lg m-auto">
+    <div className="max-w-sm bg-base-100 rounded-lg m-auto">
       {dataAdmin ? (
         <form onSubmit={handleSubmit(onSubmit)} className="p-4 grid gap-5">
           <div className="md:grid md:grid-cols-2 items-center">

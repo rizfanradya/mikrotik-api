@@ -86,7 +86,7 @@ export default function ListRouter() {
           {dataRouter.map((doc: any, index: any) => (
             <div
               key={doc.id}
-              className="flex gap-4 items-center rounded-lg p-2 text-white bg-slate-700 relative"
+              className="flex gap-4 items-center rounded-lg p-2 text-white bg-slate-800 relative"
             >
               <div className="w-14 relative flex justify-center items-center">
                 <span className="absolute font-semibold drop-shadow-[0_2px_2px_rgba(0,0,0,1)] text-4xl">
@@ -103,13 +103,13 @@ export default function ListRouter() {
 
                 <div
                   onClick={() => toggleMenu(doc.id)}
-                  className="absolute top-0 right-0 bg-slate-800 p-2 rounded-bl-3xl rounded-tr-lg cursor-pointer"
+                  className="absolute top-0 right-0 bg-slate-700 p-2 rounded-bl-3xl rounded-tr-lg cursor-pointer"
                 >
                   <CiMenuKebab size="1.2em" />
                 </div>
 
                 {menuData === doc.id && (
-                  <div className="absolute top-0 right-8 bg-slate-800 rounded-lg z-10">
+                  <div className="absolute top-0 right-8 bg-slate-700 rounded-lg z-10">
                     <ul className="font-light text-[10px] menu">
                       <li>
                         <Link href={`/dashboard/${doc.id}`}>Connect</Link>

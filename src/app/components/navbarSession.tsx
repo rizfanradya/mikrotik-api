@@ -16,7 +16,7 @@ export default function NavbarSession({
 }) {
   return (
     <>
-      <div className="navbar bg-base-300">
+      <div className="navbar bg-base-100">
         <div className="flex-1 gap-3">
           <label htmlFor="my-drawer" className="btn btn-square btn-ghost">
             <IoIosMenu size="2.2em" />

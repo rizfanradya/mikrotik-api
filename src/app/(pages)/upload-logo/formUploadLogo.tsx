@@ -54,7 +54,7 @@ export default function FormUploadLogo() {
   };
 
   return (
-    <div className="max-w-sm bg-base-300 rounded-lg m-auto p-6">
+    <div className="max-w-sm bg-base-100 rounded-lg m-auto p-6">
       <LogoImage />
 
       <form
