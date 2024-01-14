@@ -112,7 +112,7 @@ export default function ListRouter() {
                   <div className="absolute top-0 right-8 bg-slate-800 rounded-lg z-10">
                     <ul className="font-light text-[10px] menu">
                       <li>
-                        <Link href={"/"}>Connect</Link>
+                        <Link href={`/dashboard/${doc.id}`}>Connect</Link>
                       </li>
 
                       {buttonPing ? (

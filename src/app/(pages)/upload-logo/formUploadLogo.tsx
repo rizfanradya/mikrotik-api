@@ -9,39 +9,24 @@ import {
   ref,
   uploadBytes,
 } from "firebase/storage";
-import { nanoid } from "nanoid";
-import Image from "next/image";
-import path from "path";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import LogoImage from "./logoImage";
+import randomFileName from "@/utils/randomFileName";
 
 type Inputs = { file: any };
-
-function getFileFormat(fileName: any) {
-  return path.extname(fileName).slice(1);
-}
 
 export default function FormUploadLogo() {
   const { register, handleSubmit } = useForm<Inputs>();
   const [buttonSubmit, setButtonSubmit] = useState<boolean>(false);
-  const [dataLogo, setDataLogo] = useState<any>();
-
-  useEffect(() => {
-    const res = async () => {
-      const fetchData = await retrieveData("logo");
-      setDataLogo(fetchData);
-    };
-    res();
-  }, []);
 
   const onSubmit: SubmitHandler<Inputs> = async (e) => {
+    const dataLogo: any = await retrieveData("logo");
     const confirmSend = confirm("apakah anda yakin ??");
     if (confirmSend) {
       setButtonSubmit(true);
       try {
-        const randomFileName = `${Date.now()}${nanoid()}`;
-        const formatFile = getFileFormat(e.file[0].name);
-        const fileName = `${randomFileName}.${formatFile}`;
+        const fileName = randomFileName(e.file[0].name);
         const listRef = ref(storage);
         const listStg = await listAll(listRef);
         if (listStg.items.length !== 0) {
@@ -70,21 +55,7 @@ export default function FormUploadLogo() {
 
   return (
     <div className="max-w-sm bg-base-300 rounded-lg m-auto p-6">
-      {dataLogo ? (
-        <div className="flex justify-center items-center h-56">
-          <Image
-            src={dataLogo[0].logo}
-            alt="logo"
-            width={100}
-            height={100}
-            className="rounded-lg mb-4"
-          />
-        </div>
-      ) : (
-        <div className="w-full flex justify-center p-4">
-          <div className="loading loading-spinner text-info w-14"></div>
-        </div>
-      )}
+      <LogoImage />
 
       <form
         onSubmit={handleSubmit(onSubmit)}
