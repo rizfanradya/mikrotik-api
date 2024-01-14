@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 import { IoIosMenu, IoMdSettings, IoIosAddCircle } from "react-icons/io";
 import { AiFillDashboard } from "react-icons/ai";
 import { FaUser, FaUpload, FaServer } from "react-icons/fa";
-import Logout from "./components/logout";
+import Logout from "./logout";
 
 export default function Navbar({
   children,
@@ -39,22 +39,22 @@ export default function Navbar({
               MIKROTIK API
             </Link>
 
-            <li>
+            {/* <li>
               <Link href={"/"}>
                 <AiFillDashboard size="1.5em" />
                 Dashboard
+              </Link>
+            </li> */}
+            <li>
+              <Link href={"/"}>
+                <FaServer size="1.5em" />
+                Router List
               </Link>
             </li>
             <li>
               <Link href={"/add-router"}>
                 <IoIosAddCircle size="1.5em" />
                 Add Router
-              </Link>
-            </li>
-            <li>
-              <Link href={"/router-list"}>
-                <FaServer size="1.5em" />
-                Router List
               </Link>
             </li>
             <li>

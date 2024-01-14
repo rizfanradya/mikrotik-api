@@ -1,5 +1,4 @@
 "use client";
-import Navbar from "@/app/navbar";
 import { db } from "@/utils/firebase";
 import { retrieveData } from "@/utils/retrieveData";
 import axios from "axios";
@@ -78,7 +77,7 @@ export default function ListRouter() {
   }, []);
 
   return (
-    <Navbar title="Router List">
+    <>
       {dataRouter ? (
         <div
           ref={menuRef}
@@ -157,6 +156,6 @@ export default function ListRouter() {
           <div className="loading loading-spinner text-info w-14"></div>
         </div>
       )}
-    </Navbar>
+    </>
   );
 }

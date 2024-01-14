@@ -1,6 +1,6 @@
 import AuthSession from "@/app/components/authSession";
 import LoadingSpinner from "@/app/components/loading";
-import Navbar from "@/app/navbar";
+import Navbar from "@/app/components/navbar";
 import { db } from "@/utils/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import FormEditRouter from "./formEditRouter";
